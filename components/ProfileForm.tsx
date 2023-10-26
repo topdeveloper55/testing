@@ -28,7 +28,9 @@ export function ProfileForm(props: any) {
   });
   const [error, setError] = useState([]);
   const [fileError, setFileError] = useState("");
+  const [loading, setLoading] = useState(false);
   const updateProfile = form.handleSubmit(async (formData) => {
+    setLoading(true);
     setError([]);
     setFileError("");
     try {
@@ -46,13 +48,16 @@ export function ProfileForm(props: any) {
             updatedProfile,
           });
           props.getProfileInfo();
+          setLoading(false);
         } catch (error: any) {
           const errorMessages = error.errors.map((err: any) => err.message);
           setError(errorMessages);
+          setLoading(false);
         }
       }
     } catch (error) {
       console.error(error);
+      setLoading(false);
     }
   });
 
@@ -74,6 +79,7 @@ export function ProfileForm(props: any) {
       return url;
     } catch (error: any) {
       setFileError(error);
+      setLoading(false);
       // const errorMessages = error.errors.map((err: any) => err.message);
       // console.log(errorMessages);
       // setError(errorMessages);
@@ -101,7 +107,25 @@ export function ProfileForm(props: any) {
               : null}
             {fileError ? <p>{fileError}</p> : null}
           </div>
-          <Button type="submit">Update Profile</Button>
+          <Button type="submit">
+            {loading ? (
+              <>
+                <div>
+                  <video
+                    src="/loading.mp4"
+                    className="w-[30px]"
+                    autoPlay
+                    muted
+                    loop
+                  ></video>
+                </div>
+              </>
+            ) : (
+              <>
+                Update Profile
+              </>
+            )}
+          </Button>
         </div>
       </form>
     </Form>
