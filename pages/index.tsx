@@ -6,6 +6,7 @@ import { NextPage } from "next";
 
 const ProfilePage: NextPage = () => {
   const [update, setUpdate] = useState({});
+  const [status, setStatus] = useState(false);
   const getProfileInfo = async () => {
     const response = await axios.post("/api/getProfileInfo");
     setUpdate(response.data);
@@ -15,8 +16,8 @@ const ProfilePage: NextPage = () => {
   }, []);
   return (
     <div className="mt-32 container space-x-8 flex justify-center mx-auto">
-      <Profile update={update} />
-      <ProfileForm getProfileInfo={getProfileInfo}/>
+      <Profile update={update} status={status}/>
+      <ProfileForm getProfileInfo={getProfileInfo} setStatus={setStatus}/>
     </div>
   );
 };

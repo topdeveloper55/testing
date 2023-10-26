@@ -47,7 +47,8 @@ export function ProfileForm(props: any) {
           const response = await axios.post("/api/update", {
             updatedProfile,
           });
-          props.getProfileInfo();
+          await props.getProfileInfo();
+          props.setStatus(true);
           setLoading(false);
         } catch (error: any) {
           const errorMessages = error.errors.map((err: any) => err.message);
