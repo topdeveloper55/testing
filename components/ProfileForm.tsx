@@ -112,7 +112,7 @@ export function ProfileForm(props: any) {
             {loading ? (
               <>
                 <div>
-                  <img src="/loading.jpg" className="w-[30px]"></img>
+                  <img src="/123.gif" className="w-[30px]"></img>
                 </div>
               </>
             ) : (
