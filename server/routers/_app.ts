@@ -13,6 +13,7 @@ const profileRouter = router({
     const update = { $set: data };
     await collection.updateOne(filter, update);
     client.close();
+	return 'success';
   }),
   getProfile: procedure.query(async () => {
     // TODO: get profile data from db
