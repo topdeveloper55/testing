@@ -1,6 +1,6 @@
 import { connectToDatabase } from '../../lib/db';
 import { ObjectId } from 'mongodb';
-const profileUpdate = async (req: any, res: any) => {
+const getProfileInfo = async (req: any, res: any) => {
   try {
     const { client, db } = await connectToDatabase();
     const collection = db.collection('user');
@@ -17,4 +17,4 @@ const profileUpdate = async (req: any, res: any) => {
   }
 };
 
-export default profileUpdate;
+export default getProfileInfo;
