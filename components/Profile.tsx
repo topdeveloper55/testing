@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import { FC } from "react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Label } from "@/components/ui/label";
-import axios from "axios";
 export const Profile = (props: any) => {
   const query = trpc.profile.getProfile.useQuery(); // TODO: fix the error
   return (
