@@ -112,19 +112,11 @@ export function ProfileForm(props: any) {
             {loading ? (
               <>
                 <div>
-                  <video
-                    src="/loading.mp4"
-                    className="w-[30px]"
-                    autoPlay
-                    muted
-                    loop
-                  ></video>
+                  <img src="/loading.jpg" className="w-[30px]"></img>
                 </div>
               </>
             ) : (
-              <>
-                Update Profile
-              </>
+              <>Update Profile</>
             )}
           </Button>
         </div>
